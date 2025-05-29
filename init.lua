@@ -735,7 +735,6 @@ require('lazy').setup({
               completion = {
                 callSnippet = 'Replace',
               },
-              telemetry = { enable = false },
               hint = { enable = true },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               -- diagnostics = { disable = { 'missing-fields' } },
