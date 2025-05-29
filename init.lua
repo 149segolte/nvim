@@ -724,6 +724,8 @@ require('lazy').setup({
         'isort', -- Used to sort Python imports
         'prettierd', -- Used to format JavaScript/TypeScript code
         'prettier', -- Used to format JavaScript/TypeScript code
+        'hclfmt', -- Used to format HashiCorp Configuration Language (HCL)
+        'terraform-ls', -- Used for Terraform
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -792,6 +794,9 @@ require('lazy').setup({
 
         c = { 'clang-format' },
         cpp = { 'clang-format' },
+
+        hcl = { 'hcl' },
+        terraform = { 'terraform_fmt' },
       },
     },
   },
