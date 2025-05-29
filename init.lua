@@ -780,14 +780,14 @@ require('lazy').setup({
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua',       -- Used to format Lua code
-        'clang-format', -- Used to format C/C++ code
-        'black',        -- Used to format Python code
-        'isort',        -- Used to sort Python imports
-        'prettierd',    -- Used to format JavaScript/TypeScript code
-        'prettier',     -- Used to format JavaScript/TypeScript code
-        'hclfmt',       -- Used to format HashiCorp Configuration Language (HCL)
-        'terraform-ls', -- Used for Terraform
+        'stylua',
+        'clang-format',
+        'black',
+        'isort',
+        'prettierd',
+        'prettier',
+        'hclfmt',
+        'terraform-ls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -969,25 +969,22 @@ require('lazy').setup({
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('tokyonight').setup {
-        styles = {
-          comments = { italic = false }, -- Disable italics in comments
-        },
-      }
+    opts = {
+      styles = {
+        comments = { italic = false }, -- Disable italics in comments
+      },
+      transparent = true,
+      sidebars = { 'qf', 'help' },
+      dim_inactive = true,
+    },
+    config = function(_, opts)
+      require('tokyonight').setup(opts)
 
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'tokyonight-night'
     end,
-    opts = {
-      transparent = true,              -- Enable this to disable setting the background color
-      sidebars = { 'qf', 'help' },     -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-      hide_inactive_statusline = true, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-      dim_inactive = true,             -- dims inactive windows
-    },
   },
 
   -- Highlight todo, notes, etc in comments
