@@ -178,6 +178,10 @@ vim.o.confirm = true
 --  See `:help vim.keymap.set()`
 
 -- Custom keybinds
+-- Allow qicker save and quit
+vim.keymap.set('c', 'W', 'w', { desc = 'Save current file' })
+vim.keymap.set('c', 'Q', 'q', { desc = 'Quit current window' })
+
 -- Toggle format on save
 vim.g.format_on_save = true
 
