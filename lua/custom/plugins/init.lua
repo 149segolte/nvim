@@ -26,29 +26,34 @@ return {
         section_separators = '',
       },
       sections = {
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        -- lualine_x = { 'copilot', 'encoding', 'fileformat', 'filetype' },
+        -- lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_x = { 'copilot', 'encoding', 'fileformat', 'filetype' },
       },
     },
   },
 
   { 'laytan/cloak.nvim', opts = {} },
 
-  -- {
-  --   'zbirenbaum/copilot.lua',
-  --   cmd = 'Copilot',
-  --   event = 'InsertEnter',
-  --   config = function()
-  --     require('copilot').setup {}
-  --   end,
-  -- },
-  --
-  -- {
-  --   'AndreM222/copilot-lualine',
-  --   dependencies = { 'zbirenbaum/copilot.lua' },
-  -- },
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    opts = {
+      panel = { enabled = false },
+      suggestion = { enabled = false },
+      filetypes = {
+        yaml = true,
+        markdown = true,
+      },
+    },
+  },
 
-  'github/copilot.vim',
+  {
+    'AndreM222/copilot-lualine',
+    dependencies = { 'zbirenbaum/copilot.lua' },
+  },
+
+  -- 'github/copilot.vim',
 
   -- {
   --   'folke/trouble.nvim',
