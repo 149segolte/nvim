@@ -751,18 +751,18 @@ require('lazy').setup({
         pylsp = {
           settings = {
             pylsp = {
+              configurationSources = { 'pyflakes', 'pycodestyle' },
               plugins = {
+                pyflakes = { enabled = true },
                 pycodestyle = {
                   enabled = true,
                   maxLineLength = 88,
                   ignore = { 'E501' },
                 },
-                yapf = {
-                  enabled = false,
-                },
-                autopep8 = {
-                  enabled = false,
-                },
+                yapf = { enabled = false },
+                autopep8 = { enabled = false },
+                pylint = { enabled = false },
+                flake8 = { enabled = false },
               },
             },
           },
